@@ -3,8 +3,11 @@
   {% when 'image' %}
 
     <img
-      src="{{ media | img_url: 'large' }}"
+      src="{{ media | image_url: 'large' }}"
       alt="{{ media.preview_image.alt }}"
+      loading="eager"
+      width="100"
+      height="100"
       class="w-full h-full object-hover">
 
   {% when 'external_video' %}

@@ -30,7 +30,10 @@
 
                   <img
                     class="w-full h-full object-cover transition duration-1000 ease-in-out transform hover:scale-105"
-                    src="{{ collection_image | img_url: 'medium' }}"
+                    loading="eager"
+                    width="100"
+                    height="100"
+                    src="{{ collection_image | image_url: 'medium' }}"
                     alt="{{ collection.title | escape }}">
 
                 </div>
@@ -69,7 +72,6 @@
         "default": "Collections",
         "label": "Title"
       }
-
     ]
   }
 {% endschema %}

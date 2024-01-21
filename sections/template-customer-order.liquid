@@ -32,10 +32,10 @@
 
               <img
                 class="w-full h-full object-center object-cover"
-                loading="eager"
+                loading="lazy"
                 width="100"
                 height="100"
-                src="{{ line_item.image | image_url: 'medium' }}"
+                src="{{ line_item.image | image_url: height: 450 , width: 450 }}"
                 alt="{{ line_item.image.alt }}">
 
             {% else %}

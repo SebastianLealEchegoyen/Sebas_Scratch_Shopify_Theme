@@ -9,8 +9,8 @@
         <div class=" h-80 overflow-hidden">
           <img
             class="w-full h-full object-cover transition duration-1000 ease-in-out hover:scale-105 transform"
-            src="{{ product_info.featured_image | image_url: 'medium' }}"
-            loading="eager"
+            src="{{ product_info.featured_image | image_url: height: 450 , width: 450 }}"
+            loading="lazy"
             width="100"
             height="100"
             alt="{{ product_info.featured_image.alt }}">

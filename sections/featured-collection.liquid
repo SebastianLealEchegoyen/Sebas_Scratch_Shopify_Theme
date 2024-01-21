@@ -6,9 +6,9 @@
 
   <div class="max-w-6xl mx-auto">
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    {% if section.settings.featured_collection.products %}
 
-      {% if section.settings.featured_collection.products %}
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 
         {% for product in section.settings.featured_collection.products limit: section.settings.number_of_featured_products %}
 
@@ -17,7 +17,11 @@
 
         {% endfor %}
 
-      {% else %}
+      </div>
+
+    {% else %}
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 
         {% for item in (1..4) %}
 
@@ -25,41 +29,45 @@
 
         {% endfor %}
 
-      {% endif %}
+      </div>
 
-    </div>
+
+    {% endif %}
+
 
   </div>
 
 </div>
 
 {% schema %}
-  {
-    "name": "Featured Collection",
-    "settings": [
-      {
-        "type": "text",
-        "id": "title",
-        "default": "Featured Collection",
-        "label": "Title"
-      }, {
-        "type": "collection",
-        "id": "featured_collection",
-        "label": "Collection"
-      }, {
-        "type": "range",
-        "id": "number_of_featured_products",
-        "min": 4,
-        "max": 12,
-        "step": 1,
-        "default": 4,
-        "label": "Number of Featured Products"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Featured Collection"
-      }
-    ]
-  }
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Featured Collection",
+      "label": "Title"
+    },
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "number_of_featured_products",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "label": "Number of Featured Products"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection"
+    }
+  ]
+}
 {% endschema %}
